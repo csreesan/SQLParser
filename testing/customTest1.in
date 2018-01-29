@@ -1,0 +1,25 @@
+load students;
+load enrolled;
+load schedule;
+
+/* Create new table which overwrites enrolled */
+/* The table no longer has column CCN*/
+/* Wrote the same condition twice to check applying the same condition
+    twice then print table */
+
+create table schedule as
+  select Num, Time, Dept
+     from schedule
+     where Year > '2003' and Year > '2003';
+  print schedule
+/* Create a new test table from the newly created enrolled and schedule
+    where they have no columns in common as schedule no longer has CCN*/
+create table testTable
+  select Num, Dept, Grade from enrolled, schedule;
+/* Print test table */
+print testTable;
+/* Store testTable in testTable.db */
+exit;
+/* Program should not print after exitted */
+print schedule;
+
